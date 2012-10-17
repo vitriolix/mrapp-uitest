@@ -124,15 +124,14 @@ public class Lessons extends SherlockFragmentActivity implements ActionBar.TabLi
 
         @Override
         public int getCount() {
-            return 3;
+            return 2;
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
             switch (position) {
-                case 0: return getString(R.string.title_section1).toUpperCase();
-                case 1: return getString(R.string.title_section2).toUpperCase();
-                case 2: return getString(R.string.title_section3).toUpperCase();
+                case 0: return getString(R.string.title_lessons_lessons).toUpperCase();
+                case 1: return getString(R.string.title_lessons_glossary).toUpperCase();
             }
             return null;
         }

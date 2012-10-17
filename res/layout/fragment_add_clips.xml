@@ -15,6 +15,7 @@
          android:layout_height="wrap_content"
          android:paddingLeft="10dp"
          android:paddingRight="10dp"
+         android:paddingTop="5dp"
          android:text="CLOSE" />
 
      <TextView
@@ -57,6 +58,7 @@ Fill 50% of the frame with the character."
              android:id="@+id/imageView1"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
+             android:padding="5dp"
              android:src="@android:drawable/btn_star_big_off" />
 
          <TextView
@@ -78,6 +80,7 @@ properly."
              android:id="@+id/imageView2"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
+             android:padding="5dp"
              android:src="@android:drawable/ic_dialog_alert" />
 
          <TextView

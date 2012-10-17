@@ -1,36 +1,24 @@
 package info.guardianproject.misterapp;
 
+import android.os.Bundle;
+import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
-
-import android.content.Intent;
-import android.os.Bundle;
 import android.support.v4.app.NavUtils;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
 
-public class NewStory extends SherlockActivity {
+public class StoryTemplateChoser extends SherlockActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_story);
+        setContentView(R.layout.activity_chose_template);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        
-        ((Button) findViewById(R.id.buttonSimpleStory)).setOnClickListener(new OnClickListener() {
-            
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(), SceneEditor.class));
-            }
-        });
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getSupportMenuInflater().inflate(R.menu.activity_new_story, menu);
+        getSupportMenuInflater().inflate(R.menu.activity_chose_template, menu);
         return true;
     }
 
