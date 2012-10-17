@@ -1,4 +1,4 @@
-package info.guardianproject.misterapp;
+package info.guardianproject.mrappuitest;
 
 import android.os.Bundle;
 import com.actionbarsherlock.app.ActionBar;

@@ -1,10 +1,9 @@
-package info.guardianproject.misterapp;
+package info.guardianproject.mrappuitest;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -18,7 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class StorySimple extends SherlockFragmentActivity implements ActionBar.TabListener {
+public class SceneEditor extends SherlockFragmentActivity implements ActionBar.TabListener {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide fragments for each of the
@@ -36,7 +35,7 @@ public class StorySimple extends SherlockFragmentActivity implements ActionBar.T
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_story_simple);
+        setContentView(R.layout.activity_scene_editor);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         // Create the adapter that will return a fragment for each of the three primary sections
         // of the app.
@@ -74,7 +73,7 @@ public class StorySimple extends SherlockFragmentActivity implements ActionBar.T
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getSupportMenuInflater().inflate(R.menu.activity_story_simple, menu);
+        getSupportMenuInflater().inflate(R.menu.activity_scene_editor, menu);
         return true;
     }
 

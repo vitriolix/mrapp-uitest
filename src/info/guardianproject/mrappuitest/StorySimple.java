@@ -1,6 +1,12 @@
-package info.guardianproject.misterapp;
+package info.guardianproject.mrappuitest;
 
+import com.actionbarsherlock.app.ActionBar;
+import com.actionbarsherlock.app.SherlockFragmentActivity;
+import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
+import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
@@ -11,13 +17,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockFragment;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
 
-public class Lessons extends SherlockFragmentActivity implements ActionBar.TabListener {
+public class StorySimple extends SherlockFragmentActivity implements ActionBar.TabListener {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide fragments for each of the
@@ -35,7 +36,7 @@ public class Lessons extends SherlockFragmentActivity implements ActionBar.TabLi
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lessons);
+        setContentView(R.layout.activity_story_simple);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         // Create the adapter that will return a fragment for each of the three primary sections
         // of the app.
@@ -73,7 +74,7 @@ public class Lessons extends SherlockFragmentActivity implements ActionBar.TabLi
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getSupportMenuInflater().inflate(R.menu.activity_lessons, menu);
+        getSupportMenuInflater().inflate(R.menu.activity_story_simple, menu);
         return true;
     }
 
@@ -114,8 +115,8 @@ public class Lessons extends SherlockFragmentActivity implements ActionBar.TabLi
         }
 
         @Override
-        public SherlockFragment getItem(int i) {
-            SherlockFragment fragment = new DummySectionFragment();
+        public Fragment getItem(int i) {
+            Fragment fragment = new DummySectionFragment();
             Bundle args = new Bundle();
             args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, i + 1);
             fragment.setArguments(args);
@@ -124,14 +125,15 @@ public class Lessons extends SherlockFragmentActivity implements ActionBar.TabLi
 
         @Override
         public int getCount() {
-            return 2;
+            return 3;
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
             switch (position) {
-                case 0: return getString(R.string.title_lessons_lessons).toUpperCase();
-                case 1: return getString(R.string.title_lessons_glossary).toUpperCase();
+                case 0: return getString(R.string.title_section1).toUpperCase();
+                case 1: return getString(R.string.title_section2).toUpperCase();
+                case 2: return getString(R.string.title_section3).toUpperCase();
             }
             return null;
         }
@@ -140,7 +142,7 @@ public class Lessons extends SherlockFragmentActivity implements ActionBar.TabLi
     /**
      * A dummy fragment representing a section of the app, but that simply displays dummy text.
      */
-    public static class DummySectionFragment extends SherlockFragment {
+    public static class DummySectionFragment extends Fragment {
         public DummySectionFragment() {
         }
 

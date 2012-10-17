@@ -1,4 +1,4 @@
-package info.guardianproject.misterapp;
+package info.guardianproject.mrappuitest;
 
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;

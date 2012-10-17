@@ -1,23 +1,23 @@
-package info.guardianproject.misterapp;
+package info.guardianproject.mrappuitest;
 
-import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
+import com.actionbarsherlock.app.ActionBar;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.Button;
 
-public class SceneEditor extends SherlockFragmentActivity implements ActionBar.TabListener {
+public class Home extends SherlockFragmentActivity implements ActionBar.TabListener {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide fragments for each of the
@@ -31,12 +31,14 @@ public class SceneEditor extends SherlockFragmentActivity implements ActionBar.T
      * The {@link ViewPager} that will host the section contents.
      */
     ViewPager mViewPager;
+    
+    Button mButtonNewStory;
+    Button mButtonStartALesson;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_scene_editor);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        setContentView(R.layout.activity_home);
         // Create the adapter that will return a fragment for each of the three primary sections
         // of the app.
         mSectionsPagerAdapter = new SectionsPagerAdapter(getSupportFragmentManager());
@@ -73,21 +75,11 @@ public class SceneEditor extends SherlockFragmentActivity implements ActionBar.T
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getSupportMenuInflater().inflate(R.menu.activity_scene_editor, menu);
+        getSupportMenuInflater().inflate(R.menu.activity_home, menu);
         return true;
     }
 
     
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                NavUtils.navigateUpFromSameTask(this);
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
 
     @Override
     public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
@@ -115,7 +107,11 @@ public class SceneEditor extends SherlockFragmentActivity implements ActionBar.T
 
         @Override
         public Fragment getItem(int i) {
-            Fragment fragment = new DummySectionFragment();
+            int layout = R.layout.fragment_home_activity;
+            if (i == 1) {
+                layout = R.layout.fragment_home_projects;
+            }
+            Fragment fragment = new DummySectionFragment(layout);
             Bundle args = new Bundle();
             args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, i + 1);
             fragment.setArguments(args);
@@ -124,15 +120,14 @@ public class SceneEditor extends SherlockFragmentActivity implements ActionBar.T
 
         @Override
         public int getCount() {
-            return 3;
+            return 2;
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
             switch (position) {
-                case 0: return getString(R.string.title_section1).toUpperCase();
-                case 1: return getString(R.string.title_section2).toUpperCase();
-                case 2: return getString(R.string.title_section3).toUpperCase();
+                case 0: return getString(R.string.title_home_activity).toUpperCase();
+                case 1: return getString(R.string.title_home_projects).toUpperCase();
             }
             return null;
         }
@@ -142,7 +137,9 @@ public class SceneEditor extends SherlockFragmentActivity implements ActionBar.T
      * A dummy fragment representing a section of the app, but that simply displays dummy text.
      */
     public static class DummySectionFragment extends Fragment {
-        public DummySectionFragment() {
+        int layout;
+        public DummySectionFragment(int layout) {
+            this.layout = layout;
         }
 
         public static final String ARG_SECTION_NUMBER = "section_number";
@@ -150,11 +147,32 @@ public class SceneEditor extends SherlockFragmentActivity implements ActionBar.T
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
-            TextView textView = new TextView(getActivity());
-            textView.setGravity(Gravity.CENTER);
-            Bundle args = getArguments();
-            textView.setText(Integer.toString(args.getInt(ARG_SECTION_NUMBER)));
-            return textView;
+            View view = inflater.inflate(layout, null);
+            
+            if (this.layout == R.layout.fragment_home_activity) {
+                ((Button) view.findViewById(R.id.buttonNewStory)).setOnClickListener(new OnClickListener() {
+                    
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(getActivity(), NewStory.class));
+                    }
+                });
+                
+                ((Button) view.findViewById(R.id.buttonStartALesson)).setOnClickListener(new OnClickListener() {
+                    
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(getActivity(), Lessons.class));
+                    }
+                });
+            }
+            
+            return view;
+//            TextView textView = new TextView(getActivity());
+//            textView.setGravity(Gravity.CENTER);
+//            Bundle args = getArguments();
+//            textView.setText(Integer.toString(args.getInt(ARG_SECTION_NUMBER)));
+//            return textView;
         }
     }
 }
