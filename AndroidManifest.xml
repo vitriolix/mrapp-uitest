@@ -49,13 +49,6 @@
                 android:value=".Home" />
         </activity>
         <activity
-            android:name=".StorySimple"
-            android:label="@string/title_activity_story_simple" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Home" />
-        </activity>
-        <activity
             android:name=".StoryTemplate"
             android:label="@string/title_activity_story_template" >
             <meta-data

@@ -24,8 +24,7 @@
     <string name="title_section1">Section 1</string>
     <string name="title_activity_scene_editor">Scene Editor</string>
     <string name="title_activity_chose_template">Chose Template</string>
-    <string name="title_activity_story_simple">Story Simple</string>
-    <string name="title_activity_story_template">Story Template</string>
+    <string name="title_activity_story_template">Template Story</string>
     <string name="tab_make">Make</string>
     <string name="tab_review">Review</string>
     <string name="tab_publish">Publish</string>
