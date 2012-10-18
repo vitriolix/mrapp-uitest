@@ -22,9 +22,13 @@
     <string name="title_activity_lessons">Lessons</string>
     <string name="title_section2">Section 2</string>
     <string name="title_section1">Section 1</string>
-    <string name="title_activity_scene_editor">SceneEditor</string>
-    <string name="title_activity_chose_template">ChoseTemplate</string>
-    <string name="title_activity_story_simple">StorySimple</string>
-    <string name="title_activity_story_template">StoryTemplate</string>
-
+    <string name="title_activity_scene_editor">Scene Editor</string>
+    <string name="title_activity_chose_template">Chose Template</string>
+    <string name="title_activity_story_simple">Story Simple</string>
+    <string name="title_activity_story_template">Story Template</string>
+    <string name="tab_make">Make</string>
+    <string name="tab_review">Review</string>
+    <string name="tab_publish">Publish</string>
+	<string name="tab_add_clips">Add Clips</string>
+	<string name="tab_order">Order</string>
 </resources>

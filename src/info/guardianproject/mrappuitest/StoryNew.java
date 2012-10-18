@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-public class NewStory extends SherlockActivity {
+public class StoryNew extends SherlockActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -24,6 +24,14 @@ public class NewStory extends SherlockActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getBaseContext(), SceneEditor.class));
+            }
+        });
+        
+        ((Button) findViewById(R.id.buttonChoseTemplate)).setOnClickListener(new OnClickListener() {
+            
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getBaseContext(), StoryTemplateChoser.class));
             }
         });
     }

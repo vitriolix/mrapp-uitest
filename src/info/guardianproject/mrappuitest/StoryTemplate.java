@@ -1,5 +1,7 @@
 package info.guardianproject.mrappuitest;
 
+import info.guardianproject.mrappuitest.Home.DummySectionFragment;
+
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.app.ActionBar;
@@ -117,7 +119,13 @@ public class StoryTemplate extends SherlockFragmentActivity implements ActionBar
 
         @Override
         public Fragment getItem(int i) {
-            Fragment fragment = new DummySectionFragment();
+            int layout = R.layout.fragment_make;
+            if (i == 1) {
+                layout = R.layout.fragment_story_review;
+            } else if (i == 2) {
+                layout = R.layout.fragment_story_publish;
+            } 
+            Fragment fragment = new DummySectionFragment(layout);
             Bundle args = new Bundle();
             args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, i + 1);
             fragment.setArguments(args);
@@ -132,9 +140,9 @@ public class StoryTemplate extends SherlockFragmentActivity implements ActionBar
         @Override
         public CharSequence getPageTitle(int position) {
             switch (position) {
-                case 0: return getString(R.string.title_section1).toUpperCase();
-                case 1: return getString(R.string.title_section2).toUpperCase();
-                case 2: return getString(R.string.title_section3).toUpperCase();
+                case 0: return getString(R.string.tab_make).toUpperCase();
+                case 1: return getString(R.string.tab_review).toUpperCase();
+                case 2: return getString(R.string.tab_publish).toUpperCase();
             }
             return null;
         }
@@ -144,7 +152,9 @@ public class StoryTemplate extends SherlockFragmentActivity implements ActionBar
      * A dummy fragment representing a section of the app, but that simply displays dummy text.
      */
     public static class DummySectionFragment extends Fragment {
-        public DummySectionFragment() {
+        int layout;
+        public DummySectionFragment(int layout) {
+            this.layout = layout;
         }
 
         public static final String ARG_SECTION_NUMBER = "section_number";
@@ -152,11 +162,28 @@ public class StoryTemplate extends SherlockFragmentActivity implements ActionBar
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
-            TextView textView = new TextView(getActivity());
-            textView.setGravity(Gravity.CENTER);
-            Bundle args = getArguments();
-            textView.setText(Integer.toString(args.getInt(ARG_SECTION_NUMBER)));
-            return textView;
+            View view = inflater.inflate(layout, null);
+            if (this.layout == R.layout.fragment_make) {
+//                ((Button) view.findViewById(R.id.buttonNewStory)).setOnClickListener(new OnClickListener() {
+//                    
+//                    @Override
+//                    public void onClick(View v) {
+//                        startActivity(new Intent(getActivity(), StoryNew.class));
+//                    }
+//                });
+//                
+//                ((Button) view.findViewById(R.id.buttonStartALesson)).setOnClickListener(new OnClickListener() {
+//                    
+//                    @Override
+//                    public void onClick(View v) {
+//                        startActivity(new Intent(getActivity(), Lessons.class));
+//                    }
+//                });
+            } else if (this.layout == R.layout.fragment_story_review) {
+            } else if (this.layout == R.layout.fragment_story_publish) {
+                
+            }
+            return view;
         }
     }
 }

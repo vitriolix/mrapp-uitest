@@ -154,7 +154,7 @@ public class Home extends SherlockFragmentActivity implements ActionBar.TabListe
                     
                     @Override
                     public void onClick(View v) {
-                        startActivity(new Intent(getActivity(), NewStory.class));
+                        startActivity(new Intent(getActivity(), StoryNew.class));
                     }
                 });
                 
@@ -168,11 +168,6 @@ public class Home extends SherlockFragmentActivity implements ActionBar.TabListe
             }
             
             return view;
-//            TextView textView = new TextView(getActivity());
-//            textView.setGravity(Gravity.CENTER);
-//            Bundle args = getArguments();
-//            textView.setText(Integer.toString(args.getInt(ARG_SECTION_NUMBER)));
-//            return textView;
         }
     }
 }

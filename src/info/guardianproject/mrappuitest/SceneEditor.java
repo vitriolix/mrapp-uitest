@@ -1,9 +1,13 @@
 package info.guardianproject.mrappuitest;
 
+import info.guardianproject.mrappuitest.Home.DummySectionFragment;
+
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -15,6 +19,8 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class SceneEditor extends SherlockFragmentActivity implements ActionBar.TabListener {
@@ -115,7 +121,13 @@ public class SceneEditor extends SherlockFragmentActivity implements ActionBar.T
 
         @Override
         public Fragment getItem(int i) {
-            Fragment fragment = new DummySectionFragment();
+            int layout = R.layout.fragment_add_clips;
+            if (i == 1) {
+                layout = R.layout.fragment_order_clips;
+            } else if (i == 2) {
+                layout = R.layout.fragment_story_publish;
+            } 
+            Fragment fragment = new DummySectionFragment(layout);
             Bundle args = new Bundle();
             args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, i + 1);
             fragment.setArguments(args);
@@ -130,9 +142,9 @@ public class SceneEditor extends SherlockFragmentActivity implements ActionBar.T
         @Override
         public CharSequence getPageTitle(int position) {
             switch (position) {
-                case 0: return getString(R.string.title_section1).toUpperCase();
-                case 1: return getString(R.string.title_section2).toUpperCase();
-                case 2: return getString(R.string.title_section3).toUpperCase();
+                case 0: return getString(R.string.tab_add_clips).toUpperCase();
+                case 1: return getString(R.string.tab_order).toUpperCase();
+                case 2: return getString(R.string.tab_publish).toUpperCase();
             }
             return null;
         }
@@ -142,7 +154,9 @@ public class SceneEditor extends SherlockFragmentActivity implements ActionBar.T
      * A dummy fragment representing a section of the app, but that simply displays dummy text.
      */
     public static class DummySectionFragment extends Fragment {
-        public DummySectionFragment() {
+        int layout;
+        public DummySectionFragment(int layout) {
+            this.layout = layout;
         }
 
         public static final String ARG_SECTION_NUMBER = "section_number";
@@ -150,11 +164,28 @@ public class SceneEditor extends SherlockFragmentActivity implements ActionBar.T
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
-            TextView textView = new TextView(getActivity());
-            textView.setGravity(Gravity.CENTER);
-            Bundle args = getArguments();
-            textView.setText(Integer.toString(args.getInt(ARG_SECTION_NUMBER)));
-            return textView;
+            View view = inflater.inflate(layout, null);
+            if (this.layout == R.layout.fragment_add_clips) {
+//                ((Button) view.findViewById(R.id.buttonNewStory)).setOnClickListener(new OnClickListener() {
+//                    
+//                    @Override
+//                    public void onClick(View v) {
+//                        startActivity(new Intent(getActivity(), StoryNew.class));
+//                    }
+//                });
+//                
+//                ((Button) view.findViewById(R.id.buttonStartALesson)).setOnClickListener(new OnClickListener() {
+//                    
+//                    @Override
+//                    public void onClick(View v) {
+//                        startActivity(new Intent(getActivity(), Lessons.class));
+//                    }
+//                });
+            } else if (this.layout == R.layout.fragment_order_clips) {
+            } else if (this.layout == R.layout.fragment_story_publish) {
+                
+            }
+            return view;
         }
     }
 }
