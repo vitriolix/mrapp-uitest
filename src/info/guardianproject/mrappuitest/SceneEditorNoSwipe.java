@@ -112,6 +112,7 @@ public class SceneEditorNoSwipe extends SherlockFragmentActivity implements Acti
               // Set up the clip ViewPager with the clip adapter.
               mClipViewPager = (ViewPager) view.findViewById(R.id.viewPager);
               mClipViewPager.setPageMargin(-200);
+              mClipViewPager.setOffscreenPageLimit(5);
               (new AsyncTask<Void, Void, Void>() {
                   @Override
                   protected void onPostExecute(Void result) {
