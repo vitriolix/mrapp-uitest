@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="cliptype_thumbnails">
+        <item>@drawable/cliptype_close</item>
+        <item>@drawable/cliptype_detail</item>
+        <item>@drawable/cliptype_long</item>
+        <item>@drawable/cliptype_medium</item>
+        <item>@drawable/cliptype_wide</item>
+    </string-array>
+</resources>

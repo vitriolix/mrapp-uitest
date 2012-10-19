@@ -23,7 +23,7 @@ public class StoryNew extends SherlockActivity {
             
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(), SceneEditor.class));
+                startActivity(new Intent(getBaseContext(), SceneEditorNoSwipe.class));
             }
         });
         

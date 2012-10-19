@@ -28,6 +28,9 @@
     <string name="tab_make">Make</string>
     <string name="tab_review">Review</string>
     <string name="tab_publish">Publish</string>
-	<string name="tab_add_clips">Add Clips</string>
-	<string name="tab_order">Order</string>
+    <string name="tab_add_clips">Add Clips</string>
+    <string name="tab_order">Order</string>
+    <string name="title_activity_delete_me">DeleteMeActivity</string>
+    <string name="title_activity_delete_me2">DeleteMe2Activity</string>
+
 </resources>
