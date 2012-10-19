@@ -74,14 +74,20 @@ public class SceneEditorNoSwipe extends SherlockFragmentActivity implements Acti
             layout = R.layout.fragment_order_clips;
         } else if (tab.getPosition() == 2) {
             layout = R.layout.fragment_story_publish;
-        } 
-        Fragment fragment = new DummySectionFragment(layout, getSupportFragmentManager());
-        Bundle args = new Bundle();
-        args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, tab.getPosition() + 1);
-        fragment.setArguments(args);
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container, fragment)
-                .commit();
+        }
+        String tag = "" + layout;
+        FragmentManager fm = getSupportFragmentManager();
+        Fragment fragment = fm.findFragmentByTag(tag);
+        if (fragment == null) {
+            fragment = new DummySectionFragment(layout, fm);
+            Bundle args = new Bundle();
+            args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, tab.getPosition() + 1);
+            fragment.setArguments(args);
+            fm.beginTransaction()
+                    .replace(R.id.container, fragment, tag)
+//                    .addToBackStack(null)
+                    .commit();
+        }
     }
 
     @Override
@@ -94,6 +100,7 @@ public class SceneEditorNoSwipe extends SherlockFragmentActivity implements Acti
     public static class DummySectionFragment extends Fragment {
         int layout;
         ViewPager mClipViewPager;
+        View mView = null;
         ClipPagerAdapter mClipPagerAdapter;
         
         public DummySectionFragment(int layout, FragmentManager fm) {
@@ -108,29 +115,37 @@ public class SceneEditorNoSwipe extends SherlockFragmentActivity implements Acti
                 Bundle savedInstanceState) {
             View view = inflater.inflate(layout, null);
             if (this.layout == R.layout.fragment_add_clips) {
-
               // Set up the clip ViewPager with the clip adapter.
               mClipViewPager = (ViewPager) view.findViewById(R.id.viewPager);
               mClipViewPager.setPageMargin(-200);
               mClipViewPager.setOffscreenPageLimit(5);
-              (new AsyncTask<Void, Void, Void>() {
-                  @Override
-                  protected void onPostExecute(Void result) {
-                      mClipViewPager.setAdapter(mClipPagerAdapter);
-                  }
-
-                @Override
-                protected Void doInBackground(Void... params) {
-                    // TODO Auto-generated method stub
-                    return null;
-                }
-              }).execute();
               
             } else if (this.layout == R.layout.fragment_order_clips) {
             } else if (this.layout == R.layout.fragment_story_publish) {
-                
             }
             return view;
+        }
+        
+        @Override
+        public void onResume() {
+            super.onResume();
+            if (this.layout == R.layout.fragment_add_clips) {
+    
+                (new AsyncTask<Void, Void, Void>() {
+                    @Override
+                    protected void onPostExecute(Void result) {
+                        mClipViewPager.setAdapter(mClipPagerAdapter);
+                    }
+    
+                  @Override
+                  protected Void doInBackground(Void... params) {
+                      // TODO Auto-generated method stub
+                      return null;
+                  }
+                }).execute();
+            } else if (this.layout == R.layout.fragment_order_clips) {
+            } else if (this.layout == R.layout.fragment_story_publish) {
+            }
         }
         
         /**
