@@ -62,8 +62,6 @@ public class SceneEditorNoSwipe extends SherlockFragmentActivity implements Acti
         return true;
     }
 
-    
-
     @Override
     public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
     }
@@ -113,6 +111,7 @@ public class SceneEditorNoSwipe extends SherlockFragmentActivity implements Acti
 
               // Set up the clip ViewPager with the clip adapter.
               mClipViewPager = (ViewPager) view.findViewById(R.id.viewPager);
+              mClipViewPager.setPageMargin(-200);
               (new AsyncTask<Void, Void, Void>() {
                   @Override
                   protected void onPostExecute(Void result) {
@@ -146,7 +145,7 @@ public class SceneEditorNoSwipe extends SherlockFragmentActivity implements Acti
             public Fragment getItem(int i) {
                 Fragment fragment = new ClipThumbnailFragment();
                 Bundle args = new Bundle();
-                args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, i);
+                args.putInt(ClipThumbnailFragment.ARG_CLIP_TYPE_ID, i);
                 fragment.setArguments(args);
                 return fragment;
             }
@@ -173,7 +172,12 @@ public class SceneEditorNoSwipe extends SherlockFragmentActivity implements Acti
             
             LinearLayout ll = new LinearLayout(getActivity());
             ImageView iv = new ImageView(getActivity());
-
+//            LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) ll.getLayoutParams();
+//            LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(
+//                    LinearLayout.LayoutParams.MATCH_PARENT,
+//                    LinearLayout.LayoutParams.MATCH_PARENT, 1.0f);
+//            iv.setLayoutParams(param);
+//            iv.setPadding(30, 30, 30, 30);
             TypedArray drawableIds = getActivity().getResources().obtainTypedArray(R.array.cliptype_thumbnails);
             int drawableId = drawableIds.getResourceId(i, -1); // FIXME handle -1
             Drawable d = getActivity().getResources().getDrawable(drawableId);
