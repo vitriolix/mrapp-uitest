@@ -59,7 +59,7 @@ Fill 50% of the frame with the character."
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:padding="5dp"
-             android:src="@android:drawable/btn_star_big_off" />
+             android:src="@drawable/ic_context_tip" />
 
          <TextView
              android:id="@+id/textView1"
@@ -81,7 +81,7 @@ properly."
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
              android:padding="5dp"
-             android:src="@android:drawable/ic_dialog_alert" />
+             android:src="@drawable/ic_context_warning" />
 
          <TextView
              android:id="@+id/textView2"

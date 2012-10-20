@@ -31,4 +31,17 @@
     <string name="tab_add_clips">Add Clips</string>
     <string name="tab_order">Order</string>
 
+    <string name="story_publish_section">Section</string>
+    <string name="story_publish_section_hint">Sports</string>
+    <string name="story_publish_topics">Topics</string>
+    <string name="story_publish_topics_hint">Gender</string>
+    <string name="story_publish_location">Location</string>
+    <string name="story_publish_location_hint">Libya</string>
+    <string name="story_publish_share">Share</string>
+    <string name="story_publish_send_via">Send Via</string>
+    <string name="story_publish_status">Status</string>
+    <string name="story_publish_status_processing">Processing, 30 minutes remaining</string>
+    <string name="story_publish_describe_hint">Describe your story...</string>
+    <string name="story_publish_story_title">Celebrating the Arrest of Gaddafi\'s Son</string>
+    <string name="story_publish_story_date">August 18, 2012</string>
 </resources>
