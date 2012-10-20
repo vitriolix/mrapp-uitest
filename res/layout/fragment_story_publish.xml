@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
@@ -272,7 +276,7 @@
         android:textOff=""
         android:textOn=""/>
 
-    <ToggleButton
+    ol<ToggleButton
         android:id="@+id/toggleButtonBluetooth"
         android:layout_width="40dp"
         android:layout_height="40dp"
@@ -297,6 +301,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/divider6"
+        android:layout_marginBottom="15dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="5dp"
         android:layout_marginTop="5dp"
@@ -316,4 +321,13 @@
         android:layout_toRightOf="@+id/textViewTopics"
         android:text="@string/story_publish_status_processing" />
 
+    <View
+        android:id="@+id/divider7"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_below="@+id/textViewStatus"
+        android:layout_marginBottom="5dp"
+        android:background="@android:color/darker_gray" />
+
 </RelativeLayout>
+</ScrollView>
