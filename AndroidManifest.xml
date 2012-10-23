@@ -58,6 +58,9 @@
         <activity
             android:name=".SceneEditorNoSwipe"
             android:label="@string/title_activity_scene_editor" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Home" />
         </activity>
     </application>
 
