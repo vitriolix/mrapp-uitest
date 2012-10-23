@@ -25,6 +25,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -194,11 +196,12 @@ public class StoryTemplate extends SherlockFragmentActivity implements ActionBar
                 ListView lv = (ListView) view.findViewById(R.id.listView1);
                 lv.setAdapter(adapter);
                 
-                lv.setOnClickListener(new OnClickListener() {
-                    
+                lv.setOnItemClickListener(new OnItemClickListener() {
                     @Override
-                    public void onClick(View v) {
-                        getActivity().startActivity(new Intent(getActivity(), SceneEditor.class));
+                    public void onItemClick(AdapterView<?> arg0, View arg1,
+                            int arg2, long arg3) {
+                        getActivity().startActivity(new Intent(getActivity(), SceneEditorNoSwipe.class));
+                        
                     }
                 });
             } else if (this.layout == R.layout.fragment_story_review) {
