@@ -1,5 +1,9 @@
 package info.guardianproject.mrappuitest;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
 import info.guardianproject.mrappuitest.Home.DummySectionFragment;
 
 import com.actionbarsherlock.view.Menu;
@@ -7,6 +11,7 @@ import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragmentActivity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -18,7 +23,11 @@ import android.support.v4.view.ViewPager;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 public class StoryTemplate extends SherlockFragmentActivity implements ActionBar.TabListener {
@@ -164,21 +173,34 @@ public class StoryTemplate extends SherlockFragmentActivity implements ActionBar
                 Bundle savedInstanceState) {
             View view = inflater.inflate(layout, null);
             if (this.layout == R.layout.fragment_make) {
-//                ((Button) view.findViewById(R.id.buttonNewStory)).setOnClickListener(new OnClickListener() {
-//                    
-//                    @Override
-//                    public void onClick(View v) {
-//                        startActivity(new Intent(getActivity(), StoryNew.class));
-//                    }
-//                });
-//                
-//                ((Button) view.findViewById(R.id.buttonStartALesson)).setOnClickListener(new OnClickListener() {
-//                    
-//                    @Override
-//                    public void onClick(View v) {
-//                        startActivity(new Intent(getActivity(), Lessons.class));
-//                    }
-//                });
+                String[] egTitles = getResources().getStringArray(R.array.eg_scene_titles);
+                String[] egDescriptions = getResources().getStringArray(R.array.eg_scene_descriptions);
+                String[] egStatuses = getResources().getStringArray(R.array.eg_scene_statuses);
+                
+                // create the item mapping
+                String[] from = new String[] {"title", "description", "status" };
+                int[] to = new int[] { R.id.textViewTitle, R.id.textViewDescription, R.id.textViewStatus  };
+
+                List<HashMap<String, String>> fillMaps = new ArrayList<HashMap<String, String>>();
+                for(int i = 0; i < egTitles.length; i++){
+                    HashMap<String, String> map = new HashMap<String, String>();
+                    map.put("title", egTitles[i]);
+                    map.put("description", egDescriptions[i]);
+                    map.put("status", egStatuses[i]);
+                    fillMaps.add(map);
+                }
+                
+                SimpleAdapter adapter = new SimpleAdapter(getActivity(), fillMaps, R.layout.list_item_scene, from, to);
+                ListView lv = (ListView) view.findViewById(R.id.listView1);
+                lv.setAdapter(adapter);
+                
+                lv.setOnClickListener(new OnClickListener() {
+                    
+                    @Override
+                    public void onClick(View v) {
+                        getActivity().startActivity(new Intent(getActivity(), SceneEditor.class));
+                    }
+                });
             } else if (this.layout == R.layout.fragment_story_review) {
             } else if (this.layout == R.layout.fragment_story_publish) {
                 
