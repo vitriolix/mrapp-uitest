@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/editText1"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:text="@string/new_story_chose_something"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
@@ -42,57 +42,60 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView2"
         android:layout_below="@+id/textView2"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:text="@string/new_story_chose_a_medium"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <LinearLayout
-        android:id="@+id/llChoseAMedium"
+    <RadioGroup
+        android:id="@+id/radioGroupStoryType"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewChoseAMedium"
-        android:layout_marginTop="10dp" >
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal" >
 
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Video"
-            android:textAppearance="?android:attr/textAppearanceSmallInverse" />
+        <RadioButton
+            android:id="@+id/radio0"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/btn_toggle_ic_list_video"
+            android:button="@android:color/transparent"
+            android:checked="true" />
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Photo"
-            android:textAppearance="?android:attr/textAppearanceSmallInverse" />
+        <RadioButton
+            android:id="@+id/radio1"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/btn_toggle_ic_list_photo"
+            android:button="@android:color/transparent"
+            android:gravity="center" />
 
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Audio"
-            android:textAppearance="?android:attr/textAppearanceSmallInverse" />
+        <RadioButton
+            android:id="@+id/radio2"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/btn_toggle_ic_list_audio"
+            android:button="@android:color/transparent" />
 
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Gallery"
-            android:textAppearance="?android:attr/textAppearanceSmallInverse" />
+        <RadioButton
+            android:id="@+id/radio3"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/btn_toggle_ic_list_essay"
+            android:button="@android:color/transparent" />
 
-    </LinearLayout>
+    </RadioGroup>
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/llChoseAMedium"
+        android:layout_below="@+id/radioGroupStoryType"
         android:layout_marginTop="10dp"
         android:text="@string/new_story_video_is_good"
         android:textAppearance="?android:attr/textAppearanceSmall" />
