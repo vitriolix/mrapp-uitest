@@ -1,0 +1,11 @@
+--- scene editor (no tabs)
+
+- clip viewpager goes blank if you change top level tabs
+
+- indicator for which tab you are on
+
+- center image in the middle
+
+- shrink views as they scroll off 
+
+- turn into a widget that handles loading thumbnails for ones we have loaded, clipart for ones we dont have added

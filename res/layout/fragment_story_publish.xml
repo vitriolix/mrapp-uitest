@@ -74,8 +74,6 @@
         android:id="@+id/textViewSection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/editTextSection"
-        android:layout_alignTop="@+id/editTextSection"
         android:layout_below="@+id/divider1"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="5dp"
@@ -84,57 +82,55 @@
         android:textAllCaps="true"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
-    <EditText
-        android:id="@+id/editTextSection"
+    <Spinner
+        android:id="@+id/spinnerSections"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_below="@+id/divider1"
         android:layout_toRightOf="@+id/textViewSection"
-        android:layout_weight="1"
-        android:ems="10"
-        android:hint="@string/story_publish_section_hint" >
-    </EditText>
+        android:paddingRight="10dp" />
 
     <View
         android:id="@+id/divider2"
         android:layout_width="fill_parent"
         android:layout_height="1dp"
-        android:layout_below="@+id/editTextSection"
+        android:layout_below="@+id/spinnerSections"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
         android:background="@android:color/darker_gray" />
+
+    <Spinner
+        android:id="@+id/spinnerTopics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/divider2"
+        android:paddingRight="10dp" />
 
     <TextView
         android:id="@+id/textViewTopics"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/editTextTopics"
-        android:layout_alignTop="@+id/editTextTopics"
+        android:layout_alignBottom="@id/spinnerTopics"
+        android:layout_alignParentLeft="true"
+        android:layout_alignTop="@id/spinnerTopics"
         android:layout_below="@+id/divider2"
+        android:layout_marginBottom="5dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_toLeftOf="@+id/spinnerTopics"
         android:gravity="center_vertical"
         android:text="@string/story_publish_topics"
         android:textAllCaps="true"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
-    <EditText
-        android:id="@+id/editTextTopics"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/divider2"
-        android:layout_toRightOf="@+id/textViewTopics"
-        android:layout_weight="1"
-        android:ems="10"
-        android:hint="@string/story_publish_topics_hint" />
-
     <View
         android:id="@+id/divider3"
         android:layout_width="fill_parent"
         android:layout_height="1dp"
-        android:layout_below="@+id/editTextTopics"
+        android:layout_below="@+id/spinnerTopics"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
         android:background="@android:color/darker_gray" />
@@ -327,7 +323,7 @@
         android:layout_alignTop="@+id/textViewStatus"
         android:layout_below="@+id/divider6"
         android:layout_marginLeft="10dp"
-        android:layout_toRightOf="@+id/textViewTopics"
+        android:layout_toRightOf="@+id/textViewStatus"
         android:gravity="center_vertical"
         android:text="@string/story_publish_status_processing" />
 
