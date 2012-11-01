@@ -13,11 +13,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockFragment;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 
-public class Lessons extends SherlockFragmentActivity implements ActionBar.TabListener {
+public class Lessons extends com.WazaBe.HoloEverywhere.sherlock.SActivity implements ActionBar.TabListener {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide fragments for each of the

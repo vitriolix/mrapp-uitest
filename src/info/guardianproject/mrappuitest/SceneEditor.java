@@ -1,7 +1,6 @@
 package info.guardianproject.mrappuitest;
 
 import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 
@@ -26,7 +25,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class SceneEditor extends SherlockFragmentActivity implements ActionBar.TabListener {
+public class SceneEditor extends com.WazaBe.HoloEverywhere.sherlock.SActivity implements ActionBar.TabListener {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide fragments for each of the

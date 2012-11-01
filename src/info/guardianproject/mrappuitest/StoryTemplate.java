@@ -4,13 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import info.guardianproject.mrappuitest.Home.DummySectionFragment;
 
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -30,9 +27,10 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Spinner;
 import android.widget.TextView;
 
-public class StoryTemplate extends SherlockFragmentActivity implements ActionBar.TabListener {
+public class StoryTemplate extends com.WazaBe.HoloEverywhere.sherlock.SActivity implements ActionBar.TabListener {
 
     /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide fragments for each of the
@@ -206,7 +204,18 @@ public class StoryTemplate extends SherlockFragmentActivity implements ActionBar
                 });
             } else if (this.layout == R.layout.fragment_story_review) {
             } else if (this.layout == R.layout.fragment_story_publish) {
+                Spinner spinnerSections = (Spinner) getActivity().findViewById(R.id.spinnerSections);
+                Spinner spinnerTopics = (Spinner) view.findViewById(R.id.spinnerTopics);
                 
+                ArrayAdapter<CharSequence> adapterTopics = ArrayAdapter.createFromResource(getActivity(),
+                        R.array.story_topics, android.R.layout.simple_spinner_item);
+                adapterTopics.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                spinnerTopics.setAdapter(adapterTopics);
+                
+                ArrayAdapter<CharSequence> adapterSections = ArrayAdapter.createFromResource(getActivity(),
+                        R.array.story_sections, android.R.layout.simple_spinner_item);
+                adapterSections.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                spinnerTopics.setAdapter(adapterSections);
             }
             return view;
         }

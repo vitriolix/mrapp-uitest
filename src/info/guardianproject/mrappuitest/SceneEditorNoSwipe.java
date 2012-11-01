@@ -1,7 +1,6 @@
 package info.guardianproject.mrappuitest;
 
 import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.actionbarsherlock.view.Menu;
 
 import android.content.Context;
@@ -23,7 +22,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class SceneEditorNoSwipe extends SherlockFragmentActivity implements ActionBar.TabListener {
+public class SceneEditorNoSwipe extends com.WazaBe.HoloEverywhere.sherlock.SActivity implements ActionBar.TabListener {
 
     private static final String STATE_SELECTED_NAVIGATION_ITEM = "selected_navigation_item";
 
