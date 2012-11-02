@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 
+import com.WazaBe.HoloEverywhere.widget.Spinner;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.actionbarsherlock.app.ActionBar;
@@ -27,8 +28,6 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.Spinner;
-import android.widget.TextView;
 
 public class StoryTemplate extends com.WazaBe.HoloEverywhere.sherlock.SActivity implements ActionBar.TabListener {
 
