@@ -29,7 +29,7 @@ public class SceneEditorNoSwipe extends com.WazaBe.HoloEverywhere.sherlock.SActi
     private static final String STATE_SELECTED_NAVIGATION_ITEM = "selected_navigation_item";
 
     protected boolean templateStory = false; 
-    
+    protected Menu mMenu = null;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +67,8 @@ public class SceneEditorNoSwipe extends com.WazaBe.HoloEverywhere.sherlock.SActi
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getSupportMenuInflater().inflate(R.menu.activity_scene_editor_no_swipe, menu);
+    	mMenu = menu;
+        getSupportMenuInflater().inflate(R.menu.activity_scene_editor, menu);
         return true;
     }
     
@@ -93,8 +94,17 @@ public class SceneEditorNoSwipe extends com.WazaBe.HoloEverywhere.sherlock.SActi
     public void onTabSelected(ActionBar.Tab tab, FragmentTransaction fragmentTransaction) {
         // When the given tab is selected, show the tab contents in the container
         int layout = R.layout.fragment_add_clips;
+
+        if (mMenu != null) {
+	        mMenu.findItem(R.id.itemInfo).setVisible(false);
+	        mMenu.findItem(R.id.itemTrim).setVisible(false);
+        }
+        
         if (tab.getPosition() == 1) {
             layout = R.layout.fragment_order_clips;
+            mMenu.findItem(R.id.itemInfo).setVisible(true);
+            mMenu.findItem(R.id.itemTrim).setVisible(true);
+
         } else if (tab.getPosition() == 2) {
             layout = R.layout.fragment_story_publish;
         }
