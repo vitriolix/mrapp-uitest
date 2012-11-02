@@ -82,6 +82,9 @@ public class SceneEditorNoSwipe extends com.WazaBe.HoloEverywhere.sherlock.SActi
             		NavUtils.navigateUpFromSameTask(this);
             	}
                 return true;
+            case R.id.itemForward:
+            	int idx = getSupportActionBar().getSelectedNavigationIndex();
+            	getSupportActionBar().setSelectedNavigationItem(Math.min(2, idx+1));
         }
         return super.onOptionsItemSelected(item);
     }
@@ -99,14 +102,22 @@ public class SceneEditorNoSwipe extends com.WazaBe.HoloEverywhere.sherlock.SActi
 	        mMenu.findItem(R.id.itemInfo).setVisible(false);
 	        mMenu.findItem(R.id.itemTrim).setVisible(false);
         }
-        
-        if (tab.getPosition() == 1) {
-            layout = R.layout.fragment_order_clips;
-            mMenu.findItem(R.id.itemInfo).setVisible(true);
-            mMenu.findItem(R.id.itemTrim).setVisible(true);
 
+        if (tab.getPosition() == 0) {
+        	if (mMenu != null) {
+        		mMenu.findItem(R.id.itemForward).setEnabled(true);
+        	}
+        } else if (tab.getPosition() == 1) {
+            layout = R.layout.fragment_order_clips;
+
+        	if (mMenu != null) {
+	            mMenu.findItem(R.id.itemInfo).setVisible(true);
+	            mMenu.findItem(R.id.itemTrim).setVisible(true);
+		        mMenu.findItem(R.id.itemForward).setEnabled(true);
+        	}
         } else if (tab.getPosition() == 2) {
             layout = R.layout.fragment_story_publish;
+            mMenu.findItem(R.id.itemForward).setEnabled(false);
         }
         String tag = "" + layout;
         FragmentManager fm = getSupportFragmentManager();
