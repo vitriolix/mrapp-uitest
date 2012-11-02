@@ -27,11 +27,11 @@ public class StoryNew extends SherlockActivity {
             }
         });
         
-        ((Button) findViewById(R.id.buttonChoseTemplate)).setOnClickListener(new OnClickListener() {
+        ((Button) findViewById(R.id.buttonChooseTemplate)).setOnClickListener(new OnClickListener() {
             
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getBaseContext(), StoryTemplateChoser.class));
+                startActivity(new Intent(getBaseContext(), StoryTemplateChooser.class));
             }
         });
     }

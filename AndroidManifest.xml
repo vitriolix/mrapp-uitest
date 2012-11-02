@@ -42,8 +42,8 @@
                 android:value=".Home" />
         </activity>
         <activity
-            android:name=".StoryTemplateChoser"
-            android:label="@string/title_activity_chose_template" >
+            android:name=".StoryTemplateChooser"
+            android:label="@string/title_activity_choose_template" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Home" />

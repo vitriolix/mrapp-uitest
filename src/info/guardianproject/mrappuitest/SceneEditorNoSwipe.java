@@ -85,6 +85,7 @@ public class SceneEditorNoSwipe extends com.WazaBe.HoloEverywhere.sherlock.SActi
             case R.id.itemForward:
             	int idx = getSupportActionBar().getSelectedNavigationIndex();
             	getSupportActionBar().setSelectedNavigationItem(Math.min(2, idx+1));
+            	return true;
         }
         return super.onOptionsItemSelected(item);
     }

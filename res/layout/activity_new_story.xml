@@ -33,24 +33,24 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/editText1"
         android:layout_marginTop="10dp"
-        android:text="@string/new_story_chose_something"
+        android:text="@string/new_story_choose_something"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
-        android:id="@+id/textViewChoseAMedium"
+        android:id="@+id/textViewChooseAMedium"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/textView2"
         android:layout_below="@+id/textView2"
         android:layout_marginTop="30dp"
-        android:text="@string/new_story_chose_a_medium"
+        android:text="@string/new_story_choose_a_medium"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <RadioGroup
         android:id="@+id/radioGroupStoryType"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textViewChoseAMedium"
+        android:layout_below="@+id/textViewChooseAMedium"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
         android:orientation="horizontal" >
@@ -110,12 +110,12 @@
         android:text="@string/new_story_simple_story" />
 
     <Button
-        android:id="@+id/buttonChoseTemplate"
+        android:id="@+id/buttonChooseTemplate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignRight="@+id/buttonSimpleStory"
         android:layout_below="@+id/buttonSimpleStory"
         android:layout_marginTop="10dp"
-        android:text="@string/new_story_chose_template" />
+        android:text="@string/new_story_choose_template" />
 
 </RelativeLayout>
