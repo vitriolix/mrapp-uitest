@@ -7,12 +7,12 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockFragment;
+import com.WazaBe.HoloEverywhere.sherlock.SFragment;
+import com.WazaBe.HoloEverywhere.LayoutInflater;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 
@@ -113,8 +113,8 @@ public class Lessons extends com.WazaBe.HoloEverywhere.sherlock.SActivity implem
         }
 
         @Override
-        public SherlockFragment getItem(int i) {
-            SherlockFragment fragment = new DummySectionFragment();
+        public SFragment getItem(int i) {
+            SFragment fragment = new DummySectionFragment();
             Bundle args = new Bundle();
             args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, i + 1);
             fragment.setArguments(args);
@@ -139,7 +139,7 @@ public class Lessons extends com.WazaBe.HoloEverywhere.sherlock.SActivity implem
     /**
      * A dummy fragment representing a section of the app, but that simply displays dummy text.
      */
-    public static class DummySectionFragment extends SherlockFragment {
+    public static class DummySectionFragment extends SFragment {
         public DummySectionFragment() {
         }
 
