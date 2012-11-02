@@ -2,8 +2,10 @@ package info.guardianproject.mrappuitest;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.view.Menu;
+import com.actionbarsherlock.view.MenuItem;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
@@ -26,6 +28,8 @@ public class SceneEditorNoSwipe extends com.WazaBe.HoloEverywhere.sherlock.SActi
 
     private static final String STATE_SELECTED_NAVIGATION_ITEM = "selected_navigation_item";
 
+    protected boolean templateStory = false; 
+    
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,11 +38,17 @@ public class SceneEditorNoSwipe extends com.WazaBe.HoloEverywhere.sherlock.SActi
         // Set up the action bar.
         final ActionBar actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
 
         // For each of the sections in the app, add a tab to the action bar.
         actionBar.addTab(actionBar.newTab().setText(R.string.tab_add_clips).setTabListener(this));
         actionBar.addTab(actionBar.newTab().setText(R.string.tab_order).setTabListener(this));
         actionBar.addTab(actionBar.newTab().setText(R.string.tab_publish).setTabListener(this));
+        
+        if (getIntent().hasExtra("template_story")) {
+        	templateStory = true;
+        }
     }
 
     @Override
@@ -59,6 +69,20 @@ public class SceneEditorNoSwipe extends com.WazaBe.HoloEverywhere.sherlock.SActi
     public boolean onCreateOptionsMenu(Menu menu) {
         getSupportMenuInflater().inflate(R.menu.activity_scene_editor_no_swipe, menu);
         return true;
+    }
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+            	if (templateStory) {
+            		NavUtils.navigateUpTo(this, new Intent(this, StoryTemplate.class));
+            	} else {
+            		NavUtils.navigateUpFromSameTask(this);
+            	}
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

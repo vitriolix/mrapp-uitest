@@ -198,7 +198,9 @@ public class StoryTemplate extends com.WazaBe.HoloEverywhere.sherlock.SActivity 
                     @Override
                     public void onItemClick(AdapterView<?> arg0, View arg1,
                             int arg2, long arg3) {
-                        getActivity().startActivity(new Intent(getActivity(), SceneEditorNoSwipe.class));
+                    	Intent i = new Intent(getActivity(), SceneEditorNoSwipe.class);
+                    	i.putExtra("template_story", true);
+                        getActivity().startActivity(i);
                         
                     }
                 });
