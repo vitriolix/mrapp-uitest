@@ -3,6 +3,8 @@ package info.guardianproject.mrappuitest;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
+import com.animoto.android.views.DraggableGridView;
+import com.animoto.android.views.OnRearrangeListener;
 
 import android.content.Context;
 import android.content.Intent;
@@ -16,13 +18,16 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.AdapterView.OnItemClickListener;
 
 public class SceneEditorNoSwipe extends com.WazaBe.HoloEverywhere.sherlock.SActivity implements ActionBar.TabListener {
 
@@ -143,10 +148,16 @@ public class SceneEditorNoSwipe extends com.WazaBe.HoloEverywhere.sherlock.SActi
      * A dummy fragment representing a section of the app, but that simply displays dummy text.
      */
     public static class DummySectionFragment extends Fragment {
+    	private final static String TAG = "DummySectionFragment";
         int layout;
         ViewPager mClipViewPager;
         View mView = null;
         ClipPagerAdapter mClipPagerAdapter;
+        
+        /**
+         * The sortable grid view that contains the clips to reorder on the Order tab
+         */
+        protected DraggableGridView mDGV;
         
         public DummySectionFragment(int layout, FragmentManager fm) {
             this.layout = layout;
@@ -166,6 +177,44 @@ public class SceneEditorNoSwipe extends com.WazaBe.HoloEverywhere.sherlock.SActi
               mClipViewPager.setOffscreenPageLimit(5);
               
             } else if (this.layout == R.layout.fragment_order_clips) {
+            	mDGV = (DraggableGridView) view.findViewById(R.id.DraggableGridView01);
+            	
+            	ImageView iv = new ImageView(getActivity());
+            	iv.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.cliptypesm_close));
+            	mDGV.addView(iv);
+            	
+            	iv = new ImageView(getActivity());
+            	iv.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.cliptypesm_detail));
+            	mDGV.addView(iv);
+            	
+            	iv = new ImageView(getActivity());
+            	iv.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.cliptypesm_long));
+            	mDGV.addView(iv);
+            	
+            	iv = new ImageView(getActivity());
+            	iv.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.cliptypesm_medium));
+            	mDGV.addView(iv);
+            	
+            	iv = new ImageView(getActivity());
+            	iv.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.cliptypesm_wide));
+            	mDGV.addView(iv);
+            	
+            	mDGV.setOnRearrangeListener(new OnRearrangeListener() {
+					
+					@Override
+					public void onRearrange(int arg0, int arg1) {
+						// TODO Auto-generated method stub
+						Log.d(TAG, "grid rearranged");
+					}
+				});
+            	
+            	mDGV.setOnItemClickListener(new OnItemClickListener() {
+            		
+            		@Override
+        			public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+            			Log.d(TAG, "item clicked");
+            		}
+				});
             } else if (this.layout == R.layout.fragment_story_publish) {
             }
             return view;

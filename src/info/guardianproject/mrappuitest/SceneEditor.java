@@ -3,6 +3,8 @@ package info.guardianproject.mrappuitest;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
+import com.animoto.android.views.DraggableGridView;
+import com.animoto.android.views.OnRearrangeListener;
 
 import android.content.Intent;
 import android.content.res.TypedArray;
@@ -15,11 +17,14 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -158,6 +163,7 @@ public class SceneEditor extends com.WazaBe.HoloEverywhere.sherlock.SActivity im
      * A dummy fragment representing a section of the app, but that simply displays dummy text.
      */
     public static class DummySectionFragment extends Fragment {
+    	private final static String TAG = "DummySectionFragment";
         int layout;
         
         /**
@@ -195,6 +201,7 @@ public class SceneEditor extends com.WazaBe.HoloEverywhere.sherlock.SActivity im
               }).execute();
               
             } else if (this.layout == R.layout.fragment_order_clips) {
+            	
             } else if (this.layout == R.layout.fragment_story_publish) {
                 
             }
