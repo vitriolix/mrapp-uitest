@@ -27,7 +27,6 @@
     <string name="tab_publish">Publish</string>
     <string name="tab_add_clips">Add Clips</string>
     <string name="tab_order">Order</string>
-
     <string name="story_publish_section">Section</string>
     <string name="story_publish_section_hint">Sports</string>
     <string name="story_publish_topics">Topics</string>
@@ -41,11 +40,12 @@
     <string name="story_publish_describe_hint">Describe your story…</string>
     <string name="story_publish_story_title">Celebrating the Arrest of Gaddafi\'s Son</string>
     <string name="story_publish_story_date">August 18, 2012</string>
-    
-    
-    <!--  delete these below -->
-    
+
+    <!-- delete these below -->
+
     <string name="title_section3">Section 3</string>
     <string name="title_section2">Section 2</string>
     <string name="title_section1">Section 1</string>
+    <string name="title_activity_test_drag">TestDrag</string>
+
 </resources>
